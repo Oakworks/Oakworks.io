@@ -317,7 +317,7 @@
             <div class="col-lg-6 col-12">
                 <h2>Contact Us</h2>
                 <p class="h5">Ready to get started? Reach out to us today to learn more about our services and how we can help you achieve your goals.</p>
-                <form action="https://app.oakworks.io/contact/oakworks" method="post">
+                <form action="https://app.oakworks.io/api/contact/oakworks" method="post">
                     <div class="mb-3">
                         <label for="name" class="form-label">Your Name</label>
                         <input type="text" class="form-control" id="name" name="name" required>
@@ -329,6 +329,14 @@
                     <div class="mb-3">
                         <label for="message" class="form-label">Your Message</label>
                         <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAA6nqL4FLWDyoJ1o"></div>
+                    </div>
+                    <div class="form-send-success" style="display: none;">
+                        <div class="alert alert-success" role="alert">
+                            <div class="alert-message"><i class="bi bi-check-circle-fill"></i> Thank you! Your message has been sent.</div>
+                        </div>
                     </div>
                     <div class="mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
                         <button type="submit" class="btn btn-lg btn-blue-dark">Submit <i class="bi bi-send-check-fill"></i></button>
@@ -361,4 +369,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://samaritan.hadd.me/analytics/s4ukva.js"></script>
+    <!-- Cloudflare Turnstile -->
+    <script src="scripts/turnstile.js" defer></script>
 </body>
