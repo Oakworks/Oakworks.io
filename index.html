@@ -317,7 +317,7 @@
             <div class="col-lg-6 col-12">
                 <h2>Contact Us</h2>
                 <p class="h5">Ready to get started? Reach out to us today to learn more about our services and how we can help you achieve your goals.</p>
-                <form action="https://app.oakworks.io/api/contact" method="post">
+                <form action="https://app.oakworks.io/api/contact" method="post" id="contact-form">
                     <div class="mb-3">
                         <label for="name" class="form-label">Your Name</label>
                         <input type="text" class="form-control" id="name" name="name" required>
@@ -371,7 +371,7 @@
         </ul>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="scripts/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://samaritan.hadd.me/analytics/s4ukva.js"></script>
     <!-- Cloudflare Turnstile -->
@@ -379,7 +379,7 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $('form').submit(function(e) {
+            $('#contact-form').submit(function(e) {
                 e.preventDefault();
                 var form = $(this);
                 var url = form.attr('action');
