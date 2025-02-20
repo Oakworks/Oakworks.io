@@ -317,7 +317,7 @@
             <div class="col-lg-6 col-12">
                 <h2>Contact Us</h2>
                 <p class="h5">Ready to get started? Reach out to us today to learn more about our services and how we can help you achieve your goals.</p>
-                <form action="https://app.oakworks.io/api/contact/oakworks" method="post">
+                <form action="https://app.oakworks.io/api/contact" method="post">
                     <div class="mb-3">
                         <label for="name" class="form-label">Your Name</label>
                         <input type="text" class="form-control" id="name" name="name" required>
@@ -336,6 +336,11 @@
                     <div class="form-send-success" style="display: none;">
                         <div class="alert alert-success" role="alert">
                             <div class="alert-message"><i class="bi bi-check-circle-fill"></i> Thank you! Your message has been sent.</div>
+                        </div>
+                    </div>
+                    <div class="form-send-error" style="display: none;">
+                        <div class="alert alert-danger" role="alert">
+                            <div class="alert-message"><i class="bi bi-exclamation-triangle-fill"></i> An error occurred. Please try again.</div>
                         </div>
                     </div>
                     <div class="mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
@@ -371,4 +376,28 @@
     <script type="text/javascript" src="https://samaritan.hadd.me/analytics/s4ukva.js"></script>
     <!-- Cloudflare Turnstile -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" defer></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('form').submit(function(e) {
+                e.preventDefault();
+                var form = $(this);
+                var url = form.attr('action');
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: form.serialize(),
+                    success: function(data) {
+                        form.find('.form-send-success').show();
+                        form.find('.form-send-success').delay(5000).fadeOut();
+                        form.trigger('reset');
+                    },
+                    error: function(data) {
+                        form.find('.form-send-error').show();
+                        form.find('.form-send-error').delay(5000).fadeOut();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
