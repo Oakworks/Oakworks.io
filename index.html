@@ -409,6 +409,14 @@
         </ul>
     </footer>
 
+    <!-- Cookie consent overlay -->
+    <div id="cookie-consent" class="alert alert-info fixed-bottom mb-0" style="display: none; z-index: 9999;">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span>This website uses cookies to ensure you get the best experience on our website. <a href="privacy_policy.html">Learn more</a></span>
+            <button id="accept-cookies" class="btn btn-primary">Got it!</button>
+        </div>
+    </div>
+
     <script src="scripts/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://samaritan.hadd.me/analytics/s4ukva.js"></script>
@@ -436,6 +444,17 @@
                     }
                 });
             });
+
+            $('#accept-cookies').click(function() {
+                $('#cookie-consent').fadeOut();
+                document.cookie = "cookies_accepted=true; path=/; max-age=31536000"; // 1 year
+            });
+            if (document.cookie.indexOf('cookies_accepted=true') === -1) {
+                $('#cookie-consent').fadeIn();
+            } else {
+                $('#cookie-consent').hide();
+            }
+
         });
     </script>
 </body>
